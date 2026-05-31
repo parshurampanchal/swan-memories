@@ -214,7 +214,7 @@ for (let i = 0; i < 18; i++) {
 // OR use any extension: .jpg .jpeg .png .webp
 // Update the extensions array below if needed
 
-const PHOTO_EXT = 'jpg'; // change to 'png' or 'jpeg' or 'webp' if needed
+const PHOTO_EXT = 'jpeg'; // change to 'png' or 'jpeg' or 'webp' if needed
 
 const captions = [
   "Computer class days 💻", "First hello 🌸", "That smile of yours ✨", "Late night talks 🌙",
@@ -240,7 +240,7 @@ for (let i = 1; i <= 45; i++) {
 
   const img = document.createElement('img');
   img.alt = captions[i - 1];
-  img.src = `photos/photo${i}.${PHOTO_EXT}`;
+  img.src = `Photos/photo${i}.${PHOTO_EXT}`;
 
   const cap = document.createElement('div');
   cap.className = 'photo-caption';
