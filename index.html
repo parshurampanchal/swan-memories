@@ -32,6 +32,32 @@
   .scroll-cue svg { width: 24px; }
   @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
+  .hero-floating-photo {
+    position: absolute;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(201,116,143,0.18);
+    border: 3px solid rgba(255,255,255,0.85);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-floating-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .hfp-1 { width: 140px; height: 160px; top: 10%; left: 4%; animation: floatA 6s ease-in-out infinite; transform: rotate(-8deg); }
+  .hfp-2 { width: 120px; height: 140px; top: 15%; right: 5%; animation: floatB 7s ease-in-out infinite; transform: rotate(7deg); }
+  .hfp-3 { width: 130px; height: 150px; bottom: 12%; left: 6%; animation: floatC 8s ease-in-out infinite; transform: rotate(5deg); }
+  .hfp-4 { width: 120px; height: 135px; bottom: 10%; right: 4%; animation: floatD 6.5s ease-in-out infinite; transform: rotate(-6deg); }
+
+  @keyframes floatA { 0%,100%{transform:rotate(-8deg) translateY(0)} 50%{transform:rotate(-8deg) translateY(-14px)} }
+  @keyframes floatB { 0%,100%{transform:rotate(7deg) translateY(0)} 50%{transform:rotate(7deg) translateY(-10px)} }
+  @keyframes floatC { 0%,100%{transform:rotate(5deg) translateY(0)} 50%{transform:rotate(5deg) translateY(-12px)} }
+  @keyframes floatD { 0%,100%{transform:rotate(-6deg) translateY(0)} 50%{transform:rotate(-6deg) translateY(-16px)} }
+
+  @media (max-width: 600px) {
+    .hfp-1, .hfp-2 { width: 80px; height: 90px; }
+    .hfp-3, .hfp-4 { width: 75px; height: 85px; }
+  }
+
   .letter-section { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 5rem 2rem; }
   .section-tag { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: var(--rose); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 12px; }
   .section-tag::before, .section-tag::after { content: ''; display: block; height: 1px; background: var(--rose); opacity: 0.35; flex: 1; }
@@ -103,6 +129,11 @@
 <div class="petals-bg" id="petals"></div>
 
 <section class="hero" id="top">
+
+  <div class="hero-floating-photo hfp-1"><img src="Photos/photo4.jpeg" alt="Memory"></div>
+  <div class="hero-floating-photo hfp-2"><img src="Photos/photo8.jpeg" alt="Memory"></div>
+  <div class="hero-floating-photo hfp-3"><img src="Photos/photo36.jpeg" alt="Memory"></div>
+  <div class="hero-floating-photo hfp-4"><img src="Photos/photo43.jpeg" alt="Memory"></div>
   <div class="swan-icon">🦢</div>
   <p class="hero-subtitle">A page just for you</p>
   <h1 class="hero-title">For my <span>Swan</span>,<br>with all my heart</h1>
@@ -214,7 +245,7 @@ for (let i = 0; i < 18; i++) {
 // OR use any extension: .jpg .jpeg .png .webp
 // Update the extensions array below if needed
 
-const PHOTO_EXT = 'jpeg'; // change to 'png' or 'jpeg' or 'webp' if needed
+const PHOTO_EXT = 'jpg'; // change to 'png' or 'jpeg' or 'webp' if needed
 
 const captions = [
   "Computer class days 💻", "First hello 🌸", "That smile of yours ✨", "Late night talks 🌙",
@@ -240,7 +271,7 @@ for (let i = 1; i <= 45; i++) {
 
   const img = document.createElement('img');
   img.alt = captions[i - 1];
-  img.src = `Photos/photo${i}.${PHOTO_EXT}`;
+  img.src = `photos/photo${i}.${PHOTO_EXT}`;
 
   const cap = document.createElement('div');
   cap.className = 'photo-caption';
